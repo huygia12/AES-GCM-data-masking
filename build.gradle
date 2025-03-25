@@ -4,8 +4,17 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
+bootBuildImage {
+    imageName = "aes-gcm-masking-be:v1"
+}
+
+tasks.bootJar {
+    archiveBaseName = "aes-gcm-masking-be:v1"
+    archiveVersion = "1.0.0"
+}
+
 group = 'encryption.algorithm.demos'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 
 java {
     toolchain {

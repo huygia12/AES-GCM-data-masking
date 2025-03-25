@@ -1,41 +1,33 @@
 server:
-  port: 8080
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info
-  info:
-    env:
-      enabled: true
+  port: ${PORT}
 
 spring:
   application:
-    name: AES-GCM demo
+    name: AES_GCM_demo
   datasource:
-    url: jdbc:mysql://localhost:3306/mydb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: user
-    password: pass
+    url: ${DB_URL}
+    driver-class-name: ${DB_DRIVER}
+    username: ${USER}
+    password: ${PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
-        format_sql: true
+        dialect: ${DB_DIALECT}
+    open-in-view: false
 
-open-api:
-  version: v1.0.0
+logging:
+  level:
+    web: debug
+
 springdoc:
   api-docs:
     enabled: true
   swagger-ui:
     enabled: true
-  show-actuator: false
-  paths-to-match: /healthcheck, /api/**
+  show-actuator: true
+  paths-to-match: /api/**
 
 encryption:
-  master_key: 908c46b7b748c9a36c805d2235c8b9fd
+  master_key: ${MASTER_KEY}
