@@ -32,7 +32,7 @@ services:
       - cipher-network
 
   data-masking-be:
-    image: my-app
+    image: huygia12/aes-gcm-masking-be:v1
     container_name: data-masking-be
     ports:
       - "8080:8080"
