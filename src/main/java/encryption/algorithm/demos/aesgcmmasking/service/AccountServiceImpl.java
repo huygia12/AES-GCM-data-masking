@@ -15,7 +15,6 @@ import encryption.algorithm.demos.aesgcmmasking.exception.user.UserInvalidExcept
 import encryption.algorithm.demos.aesgcmmasking.exception.user.UserNotFoundException;
 import encryption.algorithm.demos.aesgcmmasking.repository.AccountRepository;
 import encryption.algorithm.demos.aesgcmmasking.util.AccountDTOMapper;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +25,7 @@ import org.springframework.stereotype.Service;
 import javax.security.auth.login.AccountNotFoundException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Slf4j
 @Service
@@ -122,6 +122,7 @@ public class AccountServiceImpl implements AccountService {
         try{
             String key = HexUtils.randomHex(16);
             String iv;
+            log.info("New generated key: {}", key);
 
             //encrypt name
             if(req.getName() != null){

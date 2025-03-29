@@ -5,11 +5,11 @@ plugins {
 }
 
 bootBuildImage {
-    imageName = "aes-gcm-masking-be:v1"
+    imageName = "aes-gcm-masking-be:v2"
 }
 
 tasks.bootJar {
-    archiveBaseName = "aes-gcm-masking-be:v1"
+    archiveBaseName = "aes-gcm-masking-be:v2"
     archiveVersion = "1.0.0"
 }
 
